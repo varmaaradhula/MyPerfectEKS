@@ -98,7 +98,9 @@ pipeline{
                     script {
                         // Set a shared variable to indicate success
                         currentBuild.description = 'Terraform Apply Success'
-                        env.TERRAFORM_APPLY_STATUS = 'true'
+                        currentBuild.displayName = "Terraform Applied"
+                        //env.TERRAFORM_APPLY_STATUS = 'true'
+                        //writeFile file: 'terraform_success.txt', text: 'true'
         }
                 }
             }
@@ -108,7 +110,9 @@ pipeline{
             when {
                 expression {
                     // Execute only if Terraform Apply was successful
-                    return env.TERRAFORM_APPLY_STATUS == 'true'
+                    //return env.TERRAFORM_APPLY_STATUS == 'true'
+                    //return fileExists('terraform_success.txt')
+                    return currentBuild.description?.contains('Terraform Apply Success')
                 }
             }
             steps {
