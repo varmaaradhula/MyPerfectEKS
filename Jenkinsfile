@@ -3,7 +3,7 @@ pipeline{
     environment {
         GIT_REPO_URL = 'https://github.com/varmaaradhula/MyPerfectEKS.git'
         GIT_BRANCH = 'master'
-        S3_BUCKET = 'barista-infra-state-bucket '
+        S3_BUCKET = 'barista-infra-state-bucket'
         TF_PATH = 'terraform'
         S3_KEY = 'terraform/state.tfstate'
         AWS_REGION = 'eu-west-2'
